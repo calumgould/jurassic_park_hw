@@ -42,17 +42,32 @@ describe('Park', function() {
   it('should be able to remove a dinosaur from its collection', function () {
     park.removeDinosaur();
     const actual = park.dinosaurCollection;
-    assert.deepStrictEqual(actual, dinosaurs)
+    assert.deepStrictEqual(actual, dinosaurs);
   });
 
-  xit('should be able to find the dinosaur that attracts the most visitors');
+  it('should be able to find the dinosaur that attracts the most visitors', function () {
+    const actual = park.mostPopularDinosaur();
+    assert.strictEqual(actual, dinosaur1);
+  });
 
-  it('should be able to find all dinosaurs of a particular species');
+  it('should be able to find all dinosaurs of a particular species', function () {
+    const actual = park.dinosaurBySpecies('Stegosaurus');
+    assert.deepStrictEqual(actual, [dinosaur2]);
+  });
 
-  it('should be able to calculate the total number of visitors per day');
+  it('should be able to calculate the total number of visitors per day', function () {
+    const actual = park.totalVisitorsPerDay();
+    assert.strictEqual(actual, 80);
+  });
 
-  it('should be able to calculate the total number of visitors per year');
+  it('should be able to calculate the total number of visitors per year', function () {
+    const actual = park.totalVisitorsPerYear();
+    assert.strictEqual(actual, 29200);
+  });
 
-  it('should be able to calculate total revenue for one year');
+  it('should be able to calculate total revenue for one year', function () {
+    const actual = park.totalRevenuePerYear();
+    assert.strictEqual(actual, 292000);
+  });
 
 });
